@@ -35,3 +35,52 @@ Els atributs que apareixen als dos datasets són:
 Com podem veure, la majoria dels atributs són categòrics, ja que tenim 19 atributs categòrics i només 4 numèrics.
 
 ### Objectius del dataset
+Aquesta base de dades té com a objectiu veure quins són els factors que fan que un passatger estigui satisfet de l'aerolínia.
+Per tant, volem entrenar un model que ens pugui predir amb bons resultats si el nivell de satisfacció del passatger sobre l'aerolía serà 'satisfied' o 'neutral or dissatisfied', i així poder estudiar quins atributs tenen més pes quan el passatger valora la seva resposta. 
+
+## Experiments
+Durant aquesta pràctica hem realitzat diferents experiments.
+
+### Preprocessament
+Abans de començar a aplicar models, hem fet alguns canvis a la nostra base de dades.
+
+Prier de tot, hem mirat quants valors null's tenim tant al nostre dataset del train com al del test. Veiem que al dataset del train tenim 310 nulls's, tots a l'atribut 'Arrival Delayin Minutes'. Com el nombre de dades de passatgers que tenen null's (310) és molt més petit al nombre total de dades que tenim (103904), he decidit eliminar les dades  que continguin null's, EL mateix passa amb el dataset del test, ja que només tenim 83 null's a l'atribut 'Arrival Delayin Minutes', així que he decidit borrar les dades que tinguin null's pel mateix motiu (tenim 83 dades amb null's d'un total de 25976).
+
+A continuació el que he fet ha estat mirar de quin tipus són els atributs, i he obtingut el següent:
+- 'Unnamed: 0': int64  
+- 'id': int64  
+- 'Gender': object 
+- 'Customer Type': object 
+- 'Type of Travel': object 
+- 'Class': object 
+- 'Flight Distance': int64  
+- 'Inflight wifi service': int64  
+- 'Departure/Arrival time convenient': int64  
+- 'Ease of Online booking': int64  
+- 'Gate location': int64  
+- 'Food and drink': int64  
+- 'Online boarding': int64  
+- 'Seat comfort': int64  
+- 'Inflight entertainment': int64  
+- 'On-board service': int64  
+- 'Leg room service': int64  
+- 'Baggage handling': int64  
+- 'Checkin service': int64  
+- 'Inflight service': int64  
+- 'Cleanliness': int64  
+- 'Departure Delay in Minutes': int64  
+- 'Arrival Delay in Minutes': float64
+- 'satisfaction': object
+
+Com podem veure, tenim molts atributs de tipus objecte, cosa que n'interessa, així que el que he fet és passar-los a úmeros. Per exemple, en el cas de l'atribut 'Gender', la resposta 'female' passarà a ser un 0, i la resposta 'male' passarà a ser un 1, i així amb la resta d'atributs de tipus objecte.
+
+Després d'assegurar-nos que cap valor de cap atribut és null i que tots són números, eliminem  les columnes "Unnamed: 0" i "id" del dataset del train i del test, ja que no ens aporten cap informació útil.
+
+Llavors mirem les estadístiques de la base de dades del train, i ens adonem que el nombre màxim de 'Departure Delay in Minutes' és molt gran (1592.000) i que el nombre màxim de 'Arrival Delay in Minutes' és molt gran (1584.000). Comprovem que això és a causa de outliers, així que el que fem és, com que el nostre dataset és molt gran i no volem que aquests outliers ens esbiaixin el nostre dataset, els eliminem. També treiem els outliers del dataset del test.
+
+### Anàlisi de les dades
+COm és lògic en el nostre dataset, decidim que la nostra varaible a predir és l'atribut 'satisfaction', ja que volem veure, a partir de tots els factors que afecten al vol, si els clients surten satisfets o no.
+
+Llavors el que comencem a fer és analitzar cada atribut un a un per veure com es relacionen amb l'atribut objectiu 'satisfaction'.  Ho farem de diferent manera pels atributs categòrics i els quantitatius.
+
+Primer analitzarem els atributs categòrics, on mirem les estadístiques del nombre de clients satisfets i no satisfets de cada categoria del atribut.
