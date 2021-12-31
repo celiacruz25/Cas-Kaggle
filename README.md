@@ -140,8 +140,7 @@ Amb el model XGBoost hem fet un estudi dels atributs que tenen més quan un pass
 22. 'Gender'
 
 ## Demo
-Per tal de fer una prova, es pot fer servir amb la següent comanda:
-""
+Per tal de fer una prova, es pot executar el fitxer "Demo.py".
 
 ## Conclusions
 Hem vist que el model que millor prediu el nostre atribut objectiu és el XGBoost.
