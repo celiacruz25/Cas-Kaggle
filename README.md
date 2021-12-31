@@ -101,6 +101,7 @@ Pel que fa a les estadístiques dels atributs quantitatius, hem observat el seg�
 Hem provat diferents models, i més d'un ha donat resultats molt bons. 
 
 |MODEL|HYPERPARÀMETRES|ACCURACY|TEMPS|
+|--|--|--|--|
 |Logistic Regression|Default|0.8710|0.3892|
 |Decision Tree|max_depth=13, random_state=42|0.9549|0.7940|
 |Random Forest|max_depth=25, random_state=0, n_estimators= 1200|0.9632|257.0060|
