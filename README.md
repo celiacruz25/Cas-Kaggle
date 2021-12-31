@@ -98,3 +98,51 @@ Pel que fa a les estadístiques dels atributs quantitatius, hem observat el seg�
 - Els atributs 'Departure Delay in Minutes' i 'Arrival Delay in Minutes' estàn molt correlacionats, i graficant-los veiem que tene una relació linial.
 
 ### Model
+Hem provat diferents models, i més d'un ha donat resultats molt bons. 
+
+MODEL | HYPERPARAMETERS | ACCURACY | TIME
+------------------------------------------
+Logistic Regression | Default |  | 
+Decision Tree | max_depth=13, random_state=42 |  |
+Random Forest | max_depth=25, random_state=0,n_estimators= 1200 |  |
+XGBoost | Default |  |
+KNN | Default |  | 
+
+Desprès de comparar el temps, els accuracy i la ROC CUrve i la Precision-Recall Curve de tots els models, sembla que el que dona millors resultats és el XGBoost.
+
+### PCA
+Un alrte experiment que he fet és provar de fer un PCA amb el model XGBoost per veure fins quan podríem reduir les dimensions de l'espai.
+En el resultat podem veure que l'accuracy del model va decreixent a poc a poc a mida que reduïm la dimensió. Però podem observar un canvi bastant dràstic a partir de quan la dimensió és de 5 cap avall.
+
+### Atributs més important
+Amb el model XGBoost hem fet un estudi dels atributs que tenen més quan un passatger pren la  decisió de donar una valoració positiva o negativa de l'aerolínia, i hem vist que aquests són ,per ordre d'importància:
+1. 'Arrival Delay in Minutes'
+2. 'Departure Delay in Minutes'
+3. 'Cleanliness'
+4. 'Inlfight service'
+5. 'Check-in service'
+6. 'Baggage handling'
+7. 'Leg room service'
+8. 'On-board sevice'
+9. 'Inflight entertainment'
+10. 'Seat comfort'
+11. 'Online boarding'
+12. 'Food and drink'
+13. 'Gate location'
+14. 'Esea of Online booking'
+15. 'Departure/Arrival time convenient'
+16. 'Inflight wifi service'
+17. 'Flight distance'
+18. 'Class'
+19. 'Type of Travel'
+20. 'Age'
+21. 'Custom Type'
+22. 'Gender'
+
+## Demo
+Per tal de fer una prova, es pot fer servir amb la següent comanda:
+""
+
+## Conclusions
+Hem vist que el model que millor prediu el nostre atribut objectiu és el XGBoost.
+A més , hem observat que si volem ue els passatgers de l'aerolínia la valorin bé, hauríem d'intentar que la sortida i l'arribada dels vols fos puntual, i millorar la neteja i el servei a bord en els vols.
