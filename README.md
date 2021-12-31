@@ -100,12 +100,12 @@ Pel que fa a les estadístiques dels atributs quantitatius, hem observat el seg�
 ### Model
 Hem provat diferents models, i més d'un ha donat resultats molt bons. 
 
-       MODEL        |                 HYPERPARAMETERS                 | ACCURACY | TIME
-Logistic Regression |                     Default                     |  0.8710  | 0.3892
-    Decision Tree   |          max_depth=13, random_state=42          |  0.9549  | 0.7940
-   Random Forest    | max_depth=25, random_state=0,n_estimators= 1200 |  0.9632  | 257.0060
-      XGBoost       |                     Default                     |  0.9629  | 4.3916
-        KNN         |                     Default                     |  0.9289  | 0.0204 
+|MODEL|HYPERPARÀMETRES|ACCURACY|TEMPS|
+|Logistic Regression|Default|0.8710|0.3892|
+|Decision Tree|max_depth=13, random_state=42|0.9549|0.7940|
+|Random Forest|max_depth=25, random_state=0, n_estimators= 1200|0.9632|257.0060|
+|XGBoost|Default|0.9629|4.3916|
+|KNN|Default|0.9289|0.0204|
 
 Desprès de comparar el temps, els accuracy i la ROC CUrve i la Precision-Recall Curve de tots els models, sembla que el que dona millors resultats és el XGBoost.
 
