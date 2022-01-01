@@ -264,3 +264,17 @@ x3 = np.array(x2)
 prediccio = classificador.predict(x3)
 print(prediccio)
 
+
+# In[121]:
+
+
+y2 = [y]
+y3 = np.array(y2)
+
+
+# In[122]:
+
+
+joblib.dump(prediccio,'prediccio.pkl')
+joblib.dump(y3,'y_real.pkl')
+
