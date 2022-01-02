@@ -1,0 +1,12 @@
+Les llibreries que necessitem per les execucion són:
+
+- sklearn
+- numpy
+- pandas
+- matplotlib
+- scipy.stats
+- seaborn
+- xgboost
+- time
+- dill
+- joblib
